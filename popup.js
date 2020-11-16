@@ -7,10 +7,9 @@ function createRoomAndShareScreen() {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 if (data.url) {
                     const url = `${baseUrlValue}/?room=${data.url}&screenshare=true`;
-                    localStorage.setItem('url', `${baseUrlValue}/?room=${data.url}`);
+                    localStorage.setItem('daily-chrome-extension-url', `${baseUrlValue}/?room=${data.url}`);
                     shareableRoomUrlInput.value = url;
                     chrome.tabs.create({ url });
                 } else {
@@ -32,8 +31,7 @@ function handleBaseInputChange(e) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const shareableLink = localStorage.getItem('url');
-    console.log(shareableLink)
+    const shareableLink = localStorage.getItem('daily-chrome-extension-url');
     if (shareableLink) {
         document.getElementById('screenShareURL').value = shareableLink;
     }
