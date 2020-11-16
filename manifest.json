@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Daily Screen Share",
+  "description": "Share your screen directly from a Chrome extension",
+  "version": "0.1",
+  "icons": {
+    "16": "daily-logo-sm.png",
+    "128": "daily-logo.png"
+  },
+  "browser_action": {
+    "default_popup": "menu.html"
+  },
+  "permissions": [
+    "https://*.netlify.app/.netlify/functions/rooms/",
+    "tabs"
+  ]
+}
