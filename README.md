@@ -25,9 +25,9 @@ Btw: The nice thing about using the local copy of this extension is you can make
 
 ### Steps to sharing your screen
 - Open the extension's menu in the browser.
-- Insert the base URL you received from the back-end.
-- Click `Share Screen`.
+- Insert the base URL you received from deploying the back-end repo on Netlify.
+- Click `Create and launch room`. Keep the checkbox checked to auto-share your screen.
 - A new tab will open with screen sharing enabled. Choose which view you want to share and it will officially be live.
-- open the Chrome extension's menu again to get the shareable link and share away!
+- Open the Chrome extension's menu again to get the shareable link and share away!
 
 
