@@ -77,11 +77,12 @@
     <label class="label" for="baseURL">1. Enter your base URL</label>
     <p>The base URL is returned from your deployed version of <a href="https://github.com/daily-demos/prebuilt-and-serverless">this repo</a>. E.g. <span class="example-text">https://<-your-subdomain->.netlify.app</span></p>
     <input placeholder="base URL from Netlify" class="input" type="text" id="baseURL">
-    <p class="text"> 2. Share your screen</p>
-    <p>Sharing your screen will create a new Daily room and open it in a new tab.</p>
-    <p>You will need to give screen sharing permissions in that window before sharing the link.</p>
+    <p class="text"> 2. Create Daily room</p>
+    <p>A new call will open automatically. If you're sharing your screen, you will need to choose which view to share.</p>
     <p>To get the shareable link, just reopen this menu and it will be available in the input below.</p>
-    <button class="share-button" disabled>Share screen</button>
+    <button class="share-button" disabled>Create and launch call</button>
+    <label for="screenShareCheckbox">Auto-share screen</label>
+    <input id="screenShareCheckbox" type="checkbox" checked>
     <label class="label" for="screenShareURL">3. Share the room's link</label>
     <input placeholder="Link will auto-populate" class="input" type="text" id="screenShareURL">
     <p class="error"></p>

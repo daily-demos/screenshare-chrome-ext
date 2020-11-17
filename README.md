@@ -2,11 +2,11 @@
 
 There are two main parts to this Chrome extension:
 
-- [the back-end component](https://github.com/daily-demos/prebuilt-and-serverless), which creates the endpoint for creating new rooms to screen share from 
+- [the back-end component](https://github.com/daily-demos/prebuilt-and-serverless), which creates the endpoint for creating new Daily rooms
 - this repo, which contains the Chrome extension code for sharing your screen with just one (okay, *two*) clicks!
 
 ## Before getting started...
-The first step will be getting your backend set up. Follow the steps in [this repo](https://github.com/daily-demos/prebuilt-and-serverless) as a very first step. (It's quick, we promise!)
+The first step will be deploying the back-end. Follow the steps in [this repo](https://github.com/daily-demos/prebuilt-and-serverless) as a very first step. (It's quick, we promise!) You will need to have a [Daily account](https://dashboard.daily.co/) to get your Daily API key.
 
 ## Getting started
 
