@@ -1,5 +1,6 @@
 function createRoomAndShareScreen() {
     const baseUrlValue = document.getElementById('baseURL').value.trim();
+    localStorage.setItem('daily-chrome-extension-baseurl', baseUrlValue);
     const shareableRoomUrlInput = document.getElementById('screenShareURL');
     if (baseUrlValue) {
         fetch(`${baseUrlValue}/.netlify/functions/rooms/`, {
@@ -9,7 +10,7 @@ function createRoomAndShareScreen() {
             .then(data => {
                 if (data.url) {
                     const url = `${baseUrlValue}/?room=${data.url}&screenshare=true`;
-                    localStorage.setItem('daily-chrome-extension-url', `${baseUrlValue}/?room=${data.url}`);
+                    localStorage.setItem('daily-chrome-extension-shareurl', `${baseUrlValue}/?room=${data.url}`);
                     shareableRoomUrlInput.value = url;
                     chrome.tabs.create({ url });
                 } else {
@@ -31,9 +32,14 @@ function handleBaseInputChange(e) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const shareableLink = localStorage.getItem('daily-chrome-extension-url');
+    const shareableLink = localStorage.getItem('daily-chrome-extension-shareurl');
+    const baseURL = localStorage.getItem('daily-chrome-extension-baseurl');
     if (shareableLink) {
         document.getElementById('screenShareURL').value = shareableLink;
+    }
+    if (baseURL) {
+        document.getElementById('baseURL').value = baseURL;
+        document.getElementsByClassName('share-button')[0].disabled = false;
     }
     // Only disable base URL input if there is content
     const baseUrlInput = document.getElementById('baseURL');
@@ -50,7 +56,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // give option to clear shareable URL from local storage
     const clearButton = document.getElementsByClassName('clear-button')[0];
     clearButton.addEventListener('click', function() {
-        localStorage.clear();
+        localStorage.removeItem('daily-chrome-extension-shareurl');
+        localStorage.removeItem('daily-chrome-extension-baseurl');
         document.getElementById('screenShareURL').value = '';
     });
 });
