@@ -23,7 +23,7 @@ That's it! You'll now have this Chrome extension available for use in Chrome. Th
 
 Btw: The nice thing about using the local copy of this extension is you can make minor modifications and click `Update` from `chrome://extensions` to immediately see those changes in the browser.
 
-### Steps to sharing your screen
+### Steps for sharing your screen
 - Open the extension's menu in the browser.
 - Insert the base URL you received from deploying the back-end repo on Netlify.
 - Click `Create and launch room`. Keep the checkbox checked to auto-share your screen.
