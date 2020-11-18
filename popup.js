@@ -6,7 +6,7 @@ function createRoomAndShareScreen() {
   localStorage.setItem('daily-chrome-extension-baseurl', baseUrlValue);
   const shareableRoomUrlInput = document.getElementById('screenShareURL');
   if (baseUrlValue) {
-    fetch(`${baseUrlValue}/.netlify/functions/rooms/`, {
+    fetch(`${baseUrlValue}/api/rooms`, {
       method: 'POST',
     })
       .then((response) => response.json())
