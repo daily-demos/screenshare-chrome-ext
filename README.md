@@ -9,6 +9,12 @@ There are two main parts to this Chrome extension:
 
 The first step will be deploying the back-end. Follow the steps in [this repo](https://github.com/daily-demos/prebuilt-and-serverless) as a very first step. (It's quick, we promise!) You will need to have a [Daily account](https://dashboard.daily.co/) to get your Daily API key.
 
+In short, you will:
+
+- Click the `Deploy to Netlify` button (no need to clone the repo).
+- Enter your Daily API key when prompted in Netlify.
+- Once the site is deployed in Netlify, the Netlify URL will be your base URL for this extension.
+
 ## Getting started
 
 To use this Chrome extension locally (or until it's published):
