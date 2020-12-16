@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
     createRoomAndShareScreen();
   });
 
-  // give option to clear shareable URL from local storage
+  // give option to clear local storage
   const clearButton = document.getElementsByClassName('clear-button')[0];
   clearButton.addEventListener('click', function () {
     clearLocalStorage();
