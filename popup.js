@@ -41,11 +41,17 @@ function createRoomAndShareScreen() {
 }
 function handleBaseInputChange(e) {
   const button = document.getElementsByClassName('share-button')[0];
+  // Only disable base URL input if there isn't content
   button.disabled = !e.target.value;
-  // todo: add a basic URL validity check
+}
+function clearLocalStorage() {
+  localStorage.removeItem('daily-chrome-extension-shareurl');
+  localStorage.removeItem('daily-chrome-extension-baseurl');
+  document.getElementById('baseURL').value = '';
+  document.getElementById('screenShareURL').value = '';
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+function getAndSetLocalStorageItems() {
   const shareableLink = localStorage.getItem('daily-chrome-extension-shareurl');
   const baseURL = localStorage.getItem('daily-chrome-extension-baseurl');
   if (shareableLink) {
@@ -55,13 +61,17 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('baseURL').value = baseURL;
     document.getElementsByClassName('share-button')[0].disabled = false;
   }
-  // Only disable base URL input if there is content
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  getAndSetLocalStorageItems();
+
   const baseUrlInput = document.getElementById('baseURL');
   baseUrlInput.addEventListener('input', function (e) {
     handleBaseInputChange(e);
   });
 
-  // handle share button click
+  // handle create room button click
   const shareButton = document.getElementsByClassName('share-button')[0];
   shareButton.addEventListener('click', function () {
     createRoomAndShareScreen();
@@ -70,9 +80,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // give option to clear shareable URL from local storage
   const clearButton = document.getElementsByClassName('clear-button')[0];
   clearButton.addEventListener('click', function () {
-    localStorage.removeItem('daily-chrome-extension-shareurl');
-    localStorage.removeItem('daily-chrome-extension-baseurl');
-    document.getElementById('baseURL').value = '';
-    document.getElementById('screenShareURL').value = '';
+    clearLocalStorage();
   });
 });
